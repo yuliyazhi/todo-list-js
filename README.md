@@ -1,1 +1,1 @@
-# todo-list-js
+# js-webpack-template

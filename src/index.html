@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JSWT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>to-do-list</title>
+</head>
+
+
+<body>
+  <div class="main-box">
+    <div class="new-task">
+      <h3>Добавить задачу</h3>
+      <div class="new-task__name">
+        <p class="section">Новая задача</p>
+        <input class="new-task__input attributes" type="text" name="" id="task" placeholder="Моя задача">
+      </div>
+
+      <div class="new-task__category">
+        <p class="section">Категория</p>
+        <select class="new-task__select attributes">
+          <option value="shop">Покупки</option>
+          <option value="home">Домашние дела</option>
+          <option value="helth">Здоровье</option>
+          <option value="work">Работа</option>
+          <option value="family">Семья</option>
+          <option value="holiday">Отдых</option>
+          <option value="meeting">Встречи</option>
+        </select>
+      </div>
+
+      <div class="new-task__important">
+        <p class="section">Добавьте важность</p>
+        <select class="new-task__select important attributes">
+          <option value="very-important">Срочно</option>
+          <option value="important">Очень важно</option>
+          <option value="no-matter">В обычном режиме</option>
+
+        </select>
+      </div>
+
+      <div class="new-task__color">
+        <p class="section">Добавьте цвет</p>
+        <div class="buttons-color">
+          <button class="btn-color green"></button>
+          <button class="btn-color red"></button>
+          <button class="btn-color orange"></button>
+          <button class="btn-color yellow"></button>
+          <button class="btn-color blue"></button>
+          <button class="btn-color pink"></button>
+        </div>
+      </div>
+
+      <div class="new-task__btn">
+        <button class="add-btn">Добавить задачу</button>
+      </div>
+
+    </div>
+
+    <div class="to-do-list ">
+      <h3>Мой список дел</h3>
+      <select class="filter-category attributes">
+
+        <option value="all-list">Полный список</option>
+        <option value="shop">Покупки</option>
+        <option value="home">Домашние дела</option>
+        <option value="helth">Здоровье</option>
+        <option value="work">Работа</option>
+        <option value="family">Семья</option>
+        <option value="holiday">Отдых</option>
+        <option value="meeting">Встречи</option>
+      </select>
+      <div class="list-task">
+        <ul>
+          <li class="list green" ;>Забрать документы</li>
+          <li class="list blue">Парикмахер</li>
+          <li class="list green">Заказать букет маме</li>
+          <li class="list pink">Собрание в школе</li>
+          <li class="list red">Купить купальник</li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="index.js"></script>
+
+</body>
+
+</html>
