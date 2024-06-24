@@ -18,14 +18,15 @@
   <div class="main-box">
     <div class="new-task">
       <h3>Добавить задачу</h3>
-      <div class="new-task__name">
+      <div class="new-task__name new-data">
         <p class="section">Новая задача</p>
         <input class="new-task__input attributes" type="text" name="" id="task" placeholder="Моя задача">
       </div>
 
-      <div class="new-task__category">
+      <div class="new-task__category new-data">
         <p class="section">Категория</p>
         <select class="new-task__select attributes">
+          <option value="shop">Разное</option>
           <option value="shop">Покупки</option>
           <option value="home">Домашние дела</option>
           <option value="helth">Здоровье</option>
@@ -36,7 +37,7 @@
         </select>
       </div>
 
-      <div class="new-task__important">
+      <div class="new-task__important new-data">
         <p class="section">Добавьте важность</p>
         <select class="new-task__select important attributes">
           <option value="very-important">Срочно</option>
@@ -46,8 +47,8 @@
         </select>
       </div>
 
-      <div class="new-task__color">
-        <p class="section">Добавьте цвет</p>
+      <div class="new-task__color new-data">
+        <p class="section color-title">Выберите цвет</p>
         <div class="buttons-color">
           <button class="btn-color green"></button>
           <button class="btn-color red"></button>
@@ -58,17 +59,17 @@
         </div>
       </div>
 
-      <div class="new-task__btn">
+      <div class="new-task__btn new-data">
         <button class="add-btn">Добавить задачу</button>
       </div>
 
     </div>
 
-    <div class="to-do-list ">
+    <div class="to-do-list new-data">
       <h3>Мой список дел</h3>
       <select class="filter-category attributes">
 
-        <option value="all-list">Полный список</option>
+        <option value="all-list">Весь список</option>
         <option value="shop">Покупки</option>
         <option value="home">Домашние дела</option>
         <option value="helth">Здоровье</option>
@@ -77,20 +78,11 @@
         <option value="holiday">Отдых</option>
         <option value="meeting">Встречи</option>
       </select>
-      <div class="list-task">
-        <ul>
-          <li class="list green" ;>Забрать документы</li>
-          <li class="list blue">Парикмахер</li>
-          <li class="list green">Заказать букет маме</li>
-          <li class="list pink">Собрание в школе</li>
-          <li class="list red">Купить купальник</li>
+      <div class="list-task new-data">
 
-        </ul>
       </div>
     </div>
-  </div>
 
-  <script type="module" src="index.js"></script>
 
 </body>
 
