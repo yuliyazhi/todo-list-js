@@ -22,13 +22,15 @@
     // width: 335px;
     border: 0.5px solid #9C89B8;
     color: #49444C;
+
+    &:hover {
+        border-color: #49444C;
+        background-color: #fffff4;
+
+    }
+
 }
 
-.attributes:hover {
-    border-color: #49444C;
-    background-color: #fffff4;
-
-}
 
 .section {
     align-self: start;
@@ -50,6 +52,10 @@
     row-gap: 5px;
 }
 
+.new-task__name {
+    row-gap: 10px;
+}
+
 .new-data {
     display: flex;
     flex-direction: column;
@@ -61,19 +67,33 @@
 
 }
 
-.new-task__input {
+
+.new-task__task {
     padding: 0 0 0 10px;
     width: calc(100% - 20px - 40px);
     min-width: 300px;
-
     outline: none;
     border: 0.5px solid #9C89B8;
 
+    &.description {
+        // max-width: calc(95% - 20px);
+        max-width: calc(100% - 20px - 40px);
+        min-height: 35px;
+        padding-top: 10px;
+        border-radius: 10px;
+    }
+
+    &::placeholder {
+        color: rgb(177, 174, 174);
+    }
+
+    &:hover {
+        border-color: #49444C;
+        background-color: #fffff4;
+
+    }
 }
 
-.new-task__input::placeholder {
-    color: rgb(177, 174, 174);
-}
 
 .add-btn {
     width: 300px;
@@ -86,38 +106,46 @@
     border-radius: 10px;
     font-weight: 600;
 
+    &:hover {
+        background-color: #6d5f83;
+        border: 0.5px solid rgb(177, 174, 174);
+        cursor: pointer;
+    }
 }
 
-.add-btn:hover {
-    background-color: #6d5f83;
-    border: 0.5px solid rgb(177, 174, 174);
-    cursor: pointer;
-}
+
 
 .btn-color {
 
     width: 45px;
     height: 45px;
-    margin: 0 10px;
+    min-width: 45px;
+    min-height: 45px;
+    // margin: 0 10px;
 
     border-radius: 7px;
     border: 0.5px solid white;
 
     // padding: 0;
+    &:hover {
+        border: 0.5px solid rgb(177, 174, 174);
+        cursor: pointer;
+    }
 }
 
-.btn-color:hover {
-    border: 0.5px solid rgb(177, 174, 174);
-    cursor: pointer;
-}
+
 
 .buttons-color {
     display: flex;
-    width: 50%;
-    min-width: 300px;
+    flex-wrap: wrap;
+    // min-width: 300px;
     align-self: start;
-    justify-content: space-around;
     padding-left: 20px;
+    gap: 10px;
+
+    @media screen and (max-width: 350px) {
+        max-width: 180px;
+    }
 
 }
 
@@ -148,10 +176,105 @@
     background-color: #FFC8DD;
 }
 
+.list-wrapper {
+    display: flex;
+    width: calc(100% - 10px - 40px);
+    min-width: 300px;
+
+    align-items: center;
+    column-gap: 20px;
+}
+
+.list-status {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 35px;
+    min-width: 35px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+
+
+    >input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        z-index: -1;
+        //    visibility: hidden;
+    }
+
+    &.yellow {
+        border-color: #FFF6BD;
+
+        &.checked {
+            background-color: #FFF6BD;
+        }
+    }
+
+    &.green {
+        border-color: #CEEDC7;
+
+        &.checked {
+            background-color: #CEEDC7;
+        }
+    }
+
+    &.red {
+        border-color: #FF9494;
+
+        &.checked {
+            background-color: #FF9494;
+        }
+    }
+
+    &.orange {
+        border-color: #FFD4B2;
+
+        &.checked {
+            background-color: #FFD4B2;
+        }
+    }
+
+    &.blue {
+        border-color: #D7E3FC;
+
+        &.checked {
+            background-color: #D7E3FC;
+        }
+    }
+
+    &.pink {
+        border-color: #FFC8DD;
+
+        &.checked {
+            background-color: #FFC8DD;
+        }
+    }
+
+    &:hover {
+
+
+        min-height: 38px;
+        min-width: 38px;
+        height: 38px;
+        width: 38px;
+
+        border: 1.5px solid rgb(178, 173, 182);
+
+        cursor: pointer;
+    }
+}
+
 .list {
 
     display: flex;
     align-items: center;
+    width: 100%;
 
     border: 0.5px solid white;
     border-radius: 10px;
@@ -159,15 +282,15 @@
     margin: 10px 0;
     height: 45px;
 
-    width: calc(100% - 10px - 40px);
-    min-width: 300px;
 
+
+    &:hover {
+        border: 0.5px solid rgb(178, 173, 182);
+        cursor: pointer;
+    }
 }
 
-.list:hover {
-    border: 0.5px solid rgb(178, 173, 182);
-    cursor: pointer;
-}
+
 
 
 

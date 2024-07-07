@@ -17,10 +17,15 @@
 <body>
   <div class="main-box">
     <div class="new-task">
-      <h3>Добавить задачу</h3>
+      <h2>Добавить задачу</h2>
       <div class="new-task__name new-data">
-        <p class="section">Новая задача</p>
-        <input class="new-task__input attributes" type="text" name="" id="task" placeholder="Моя задача">
+        <p class="section"> Новая задача</p>
+
+        <input class="new-task__task attributes" type="text" name="" id="task" placeholder="Моя задача">
+        <!-- <input class="new-task__input attributes" type="text" name="" id="task" placeholder="Описание"> -->
+        <textarea class="new-task__task description" name="comment" placeholder="Описание"></textarea></p>
+
+
       </div>
 
       <div class="new-task__category new-data">
@@ -66,7 +71,7 @@
     </div>
 
     <div class="to-do-list new-data">
-      <h3>Мой список дел</h3>
+      <h2>Мой список дел</h2>
       <select class="filter-category attributes">
 
         <option value="all-list">Весь список</option>

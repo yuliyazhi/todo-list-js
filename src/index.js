@@ -1,4 +1,7 @@
 import './index.scss';
+
+import checkArrow from "../src/static/icons/check_arrow.svg";
+
 const listTask = document.querySelector(".list-task");
 const newTaskInput = document.querySelector(".new-task__input");
 const addBtn = document.querySelector(".add-btn");
@@ -41,7 +44,46 @@ const listTaskData = [
 ]
 
 renderListTask();
-addBtn.addEventListener("click", () => {
+addBtn.addEventListener("click", addNewTask)
+
+function renderListTask() {
+    listTaskData.forEach((task) => renderTask(task));
+}
+
+function renderTask(task) {
+    const taskElem = document.createElement("div");
+    taskElem.classList.add("list-wrapper");
+
+    // taskElem.setAttribute("data-id", task.id);
+
+    const taskHTML = `
+    <div class="list-status ${task.color} ${task.comleted ? "checked" : ""}">
+        <input type="checkbox" ${task.comleted ? "checked" : ""}>
+        <img src="${checkArrow}" alt="">
+    </div>
+    
+    <div class="list btn-color ${task.color}">
+        <span>${task.text}</span>
+    </div>`;
+    taskElem.insertAdjacentHTML("beforeend", taskHTML);
+
+    // taskElem.querySelector(".list-status").addEventListener("click", () => {
+    //     console.log("click list-status");
+    // });
+
+    const listStatus = taskElem.querySelector(".list-status");
+    listStatus.setAttribute("data-id", task.id);
+
+    listStatus.addEventListener("click", changeTaskStatus);
+
+    taskElem.querySelector(".list").addEventListener("click", () => {
+        console.log("click list");
+    });
+
+    listTask.append(taskElem);
+};
+
+function addNewTask() {
     const text = newTaskInput.value;
 
     if (text) {
@@ -58,52 +100,39 @@ addBtn.addEventListener("click", () => {
 
         newTaskInput.value = "";
     }
-})
-
-function renderListTask() {
-    listTaskData.forEach((task) => renderTask(task));
 }
-function renderTask(task) {
-    const taskElem = document.createElement("div");
-    taskElem.classList.add("list", "btn-color", `${task.color}`)
 
-    taskElem.setAttribute("data-id", task.id);
+function changeTaskStatus(ev) {
 
-    const taskHTML = `
-    <label>
-        <input type="checkbox" ${task.comleted && "checked"}>
-        <span>${task.text}</span>
-    </label>`;
-    taskElem.insertAdjacentHTML("beforeend", taskHTML);
+    ev.preventDefault();
 
-    listTask.append(taskElem);
+    // console.log(ev.currentTarget);
 
-    taskElem.addEventListener("click", (ev) => {
-        ev.preventDefault();
+    const listStatus = ev.currentTarget; /*показывает div на который происходит клик */
+    // некорректно работает, при клике на checkbox не меняет статус
 
-        // console.log(ev.currentTarget);
+    listStatus.classList.toggle("checked");
 
-        const taskElem = ev.currentTarget; /*показывает div на который происходит клик */
-        // некорректно работает, при клике на checkbox не меняет статус
-        const inputElem = taskElem.querySelector("input");
-        if (inputElem.checked) {
-            inputElem.checked = false;
-        } else {
-            inputElem.checked = true;
-        }
+    const inputElem = listStatus.querySelector("input");
+    if (inputElem.checked) {
+        inputElem.checked = false;
+    } else {
+        inputElem.checked = true;
+    }
 
-        /*
-        или так
-         inputElem.checked = !inputElem.checked;
-        */
-        const id = taskElem.getAttribute("data-id");
+    /*
+    или так
+     inputElem.checked = !inputElem.checked;
+    */
+    const id = listStatus.getAttribute("data-id");
 
-        const taskFound = listTaskData.find((elem) => elem.id === Number(id));
-        if (taskFound.comleted) {
-            taskFound.comleted = false;
-        } else {
-            taskFound.comleted = true;
-        }
-        console.log(listTaskData);
-    });
+    const taskFound = listTaskData.find((elem) => elem.id === Number(id));
+    if (taskFound.comleted) {
+        taskFound.comleted = false;
+    } else {
+        taskFound.comleted = true;
+    }
+    console.log(listTaskData);
 }
+
+
