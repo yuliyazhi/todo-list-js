@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>JSWT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>to-do-list</title>
+</head>
+
+
+<body>
+    <div class="main-box">
+        <div class="new-task">
+            <h2>Добавить задачу</h2>
+            <div class="new-task__name new-data">
+                <p class="section"> Новая задача</p>
+
+                <input class="new-task__task attributes" type="text" name="title" id="task" placeholder="Моя задача">
+                <!-- <input class="new-task__input attributes" type="text" name="" id="task" placeholder="Описание"> -->
+                <textarea class="new-task__task description" name="comment" placeholder="Описание"></textarea>
+
+
+            </div>
+
+            <div class="new-task__category new-data">
+                <p class="section">Категория</p>
+                <select class="new-task__select attributes" name="category">
+                    <option value="other">Разное</option>
+                    <option value="shop">Покупки</option>
+                    <option value="home">Домашние дела</option>
+                    <option value="helth">Здоровье</option>
+                    <option value="work">Работа</option>
+                    <option value="family">Семья</option>
+                    <option value="holiday">Отдых</option>
+                    <option value="meeting">Встречи</option>
+                </select>
+            </div>
+
+            <div class="new-task__important new-data">
+                <p class="section">Добавьте важность</p>
+                <select class="new-task__select important attributes" name="importance">
+                    <option value="very-important">Срочно</option>
+                    <option value="important">Очень важно</option>
+                    <option value="no-matter">В обычном режиме</option>
+
+                </select>
+            </div>
+
+            <div class="new-task__color new-data">
+                <p class="section color-title">Выберите цвет</p>
+                <div class="buttons-color">
+                    <!-- <button class="btn-color green"></button>
+          <button class="btn-color red"></button>
+          <button class="btn-color orange"></button>
+          <button class="btn-color yellow"></button>
+          <button class="btn-color blue"></button>
+          <button class="btn-color pink"></button> -->
+                    <label class="btn-color green">
+                        <input type="radio" name="task-color" value="green" checked></label>
+                    <label class="btn-color red">
+                        <input type="radio" name="task-color" value="red"></label>
+                    <label class="btn-color orange">
+                        <input type="radio" name="task-color" value="orange"></label>
+                    <label class="btn-color yellow">
+                        <input type="radio" name="task-color" value="yellow"></label>
+                    <label class="btn-color blue">
+                        <input type="radio" name="task-color" value="blue"></label>
+                    <label class="btn-color pink">
+                        <input type="radio" name="task-color" value="pink"></label>
+
+                </div>
+            </div>
+
+            <div class="new-task__btn new-data">
+
+                <button type="submit" class="add-btn">Добавить задачу</button>
+
+                <!-- вариант кнопки через input -->
+                <!-- <input type="submit" class="add-btn" name="id" value="Добавить задачу"> -->
+            </div>
+
+        </div>
+
+        <div class="to-do-list new-data">
+            <h2>Мой список дел</h2>
+            <select class="filter-category attributes" name="filter">
+
+                <option value="all-list">Весь список</option>
+                <option value="shop">Покупки</option>
+                <option value="home">Домашние дела</option>
+                <option value="helth">Здоровье</option>
+                <option value="work">Работа</option>
+                <option value="family">Семья</option>
+                <option value="holiday">Отдых</option>
+                <option value="meeting">Встречи</option>
+            </select>
+            <div class="list-task new-data">
+
+            </div>
+        </div>
+
+
+</body>
+
+</html>

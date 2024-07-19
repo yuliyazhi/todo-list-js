@@ -3,10 +3,34 @@ import './index.scss';
 import checkArrow from "../src/static/icons/check_arrow.svg";
 
 const listTask = document.querySelector(".list-task");
+// const newTaskInput = document.querySelector(".new-task__input");
 const newTaskInput = document.querySelector(".new-task__task");
+
 const addBtn = document.querySelector(".add-btn");
-const newTaskForm = document.querySelector(".main-box");
-const btnColor = document.querySelectorAll(".btn-color");
+const newTaskForm = document.querySelector(".new-task");
+
+// newTaskForm.addEventListener("submit", (ev) => {
+//     ev.preventDefault();
+
+//     const formData = new FormData(newTaskForm);
+
+//     const title = formData.get("title");
+//     const category = formData.get("category");
+//     const importance = formData.get("importance");
+//     const comment = formData.get("comment");
+//     const taskColor = formData.get("task-color");
+
+
+//     const task = {
+//         title,
+//         comment,
+//         importance,
+//         category,
+//         taskColor
+//     }
+//     console.log(task);
+// });
+
 
 const listTaskData = [
     {
@@ -44,30 +68,28 @@ const listTaskData = [
 ]
 
 renderListTask();
-newTaskForm.addEventListener("submit", (ev) => {
-    ev.preventDefault();
+// newTaskForm.addEventListener("submit", (ev) => {
+//     ev.preventDefault();
 
-    const formData = new FormData(newTaskForm);
+//     const formData = new FormData(newTaskForm);
 
-    const title = formData.get("title");
-    const category = formData.get("category");
-    const importance = formData.get("importance");
-    const comment = formData.get("comment");
-    const taskColor = formData.get("task-color");
+//     const title = formData.get("title");
+//     const category = formData.get("category");
+//     const importance = formData.get("importance");
+//     const comment = formData.get("comment");
+//     const taskColor = formData.get("task-color");
 
 
-    const task = {
-        title,
-        comment,
-        importance,
-        category,
-        taskColor
-    }
-    console.log(task);
-});
-
+//     const task = {
+//         title,
+//         comment,
+//         importance,
+//         category,
+//         taskColor
+//     }
+//     console.log(task);
+// });
 addBtn.addEventListener("click", addNewTask);
-
 
 function renderListTask() {
     listTaskData.forEach((task) => renderTask(task));
@@ -99,7 +121,6 @@ function renderTask(task) {
 
     listStatus.addEventListener("click", changeTaskStatus);
 
-
     taskElem.querySelector(".list").addEventListener("click", () => {
         console.log("click list");
     });
@@ -110,27 +131,13 @@ function renderTask(task) {
 function addNewTask() {
     const text = newTaskInput.value;
 
-    const formData = new FormData(newTaskForm);
-
-    const title = formData.get("title");
-    const category = formData.get("category");
-    const importance = formData.get("importance");
-    const comment = formData.get("comment");
-    const taskColor = formData.get("task-color");
-
-
     if (text) {
-
         const newTask = {
             id: Date.now(),
-            text: title,
-            comment: comment,
-            importance: importance,
-            category: category,
+            text,
             comleted: false,
-            color: taskColor,
-
-        }
+            color: "red",
+        };
 
         listTaskData.push(newTask);
 
@@ -174,18 +181,3 @@ function changeTaskStatus(ev) {
 }
 
 
-// Прикрепляем обработчик события 'click' к каждому элементу
-btnColor.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-        // Находим элемент, который был кликнут
-        const choiceBtn = this;
-
-        // Удаляем класс 'choice' со всех элементов
-        btnColor.forEach(function (otherbuttons) {
-            otherbuttons.classList.remove('choice');
-        });
-
-        // Добавляем класс 'active' к кликнутому элементу
-        choiceBtn.classList.add('choice');
-    });
-});
