@@ -15,8 +15,8 @@
 
 
 <body>
-  <form id="mars-once" class="main-box">
-    <div class="new-task">
+  <div class="main-box">
+    <form class="new-task">
       <h2>Добавить задачу</h2>
       <div class="new-task__name new-data">
         <p class="section"> Новая задача</p>
@@ -26,62 +26,63 @@
         <textarea class="new-task__task description" name="comment" placeholder="Описание"></textarea>
 
 
-      </div>
 
-      <div class="new-task__category new-data">
-        <p class="section">Категория</p>
-        <select class="new-task__select attributes" name="category">
-          <option value="other">Разное</option>
-          <option value="shop">Покупки</option>
-          <option value="home">Домашние дела</option>
-          <option value="helth">Здоровье</option>
-          <option value="work">Работа</option>
-          <option value="family">Семья</option>
-          <option value="holiday">Отдых</option>
-          <option value="meeting">Встречи</option>
-        </select>
-      </div>
+        <div class="new-task__category new-data">
+          <p class="section">Категория</p>
+          <select class="new-task__select attributes" name="category">
+            <option value="other">Разное</option>
+            <option value="all-list">Весь список</option>
+            <option value="shop">Покупки</option>
+            <option value="home">Домашние дела</option>
+            <option value="helth">Здоровье</option>
+            <option value="work">Работа</option>
+            <option value="family">Семья</option>
 
-      <div class="new-task__important new-data">
-        <p class="section">Добавьте важность</p>
-        <select class="new-task__select important attributes" name="importance">
-          <option value="very-important">Срочно</option>
-          <option value="important">Очень важно</option>
-          <option value="no-matter">В обычном режиме</option>
 
-        </select>
-      </div>
+          </select>
+        </div>
 
-      <div class="new-task__color new-data">
-        <p class="section color-title">Выберите цвет</p>
-        <div class="buttons-color">
+        <div class="new-task__important new-data">
+          <p class="section">Добавьте важность</p>
+          <select class="new-task__select important attributes" name="importance">
+            <option value="very-important">Срочно</option>
+            <option value="important">Очень важно</option>
+            <option value="no-matter">В обычном режиме</option>
 
-          <label class="btn-color green">
-            <input type="radio" name="task-color" value="green" checked></label>
+          </select>
+        </div>
 
-          <label class="btn-color red">
-            <input type="radio" name="task-color" value="red"></label>
-          <label class="btn-color orange">
-            <input type="radio" name="task-color" value="orange"></label>
-          <label class="btn-color yellow">
-            <input type="radio" name="task-color" value="yellow"></label>
-          <label class="btn-color blue">
-            <input type="radio" name="task-color" value="blue"></label>
-          <label class="btn-color pink">
-            <input type="radio" name="task-color" value="pink"></label>
+        <div class="new-task__color new-data">
+          <p class="section color-title">Выберите цвет</p>
+          <div class="buttons-color">
 
+            <label class="btn-color green choice">
+              <input type="radio" name="task-color" value="green" checked></label>
+
+            <label class="btn-color red">
+              <input type="radio" name="task-color" value="red"></label>
+            <label class="btn-color orange">
+              <input type="radio" name="task-color" value="orange"></label>
+            <label class="btn-color yellow">
+              <input type="radio" name="task-color" value="yellow"></label>
+            <label class="btn-color blue">
+              <input type="radio" name="task-color" value="blue"></label>
+            <label class="btn-color pink">
+              <input type="radio" name="task-color" value="pink"></label>
+
+          </div>
+        </div>
+
+        <div class="new-task__btn new-data">
+
+          <!-- <button type="submit" class="add-btn">Добавить задачу</button> -->
+
+          <!-- вариант кнопки через input -->
+          <input type="submit" class="add-btn" name="id" value="Добавить задачу">
         </div>
       </div>
+    </form>
 
-      <div class="new-task__btn new-data">
-
-        <!-- <button type="submit" class="add-btn">Добавить задачу</button> -->
-
-        <!-- вариант кнопки через input -->
-        <input type="submit" class="add-btn" name="id" value="Добавить задачу">
-      </div>
-
-    </div>
 
     <div class="to-do-list new-data">
       <h2>Мой список дел</h2>
@@ -93,13 +94,13 @@
         <option value="helth">Здоровье</option>
         <option value="work">Работа</option>
         <option value="family">Семья</option>
-        <option value="holiday">Отдых</option>
-        <option value="meeting">Встречи</option>
+        <option value="other">Разное</option>
       </select>
-      <div class="list-task new-data">
 
-      </div>
+      <div class="list-task new-data"></div>
     </div>
+  </div>
+  </div>
 
 
 </body>

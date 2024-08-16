@@ -3,10 +3,9 @@ import './index.scss';
 import checkArrow from "../src/static/icons/check_arrow.svg";
 
 const listTask = document.querySelector(".list-task");
-const newTaskInput = document.querySelector(".new-task__task");
-const addBtn = document.querySelector(".add-btn");
-const newTaskForm = document.querySelector(".main-box");
+const newTaskForm = document.querySelector(".new-task");
 const btnColor = document.querySelectorAll(".btn-color");
+const categoriesElem = document.querySelector(".filter-category");
 
 const listTaskData = [
     {
@@ -14,62 +13,99 @@ const listTaskData = [
         text: "Забрать документы",
         comleted: true,
         color: "green",
+        category: "work",
     },
     {
         id: 2,
         text: "Парикмахер",
         comleted: false,
         color: "pink",
+        category: "other",
     },
     {
         id: 3,
         text: "Заказать букет маме",
         comleted: false,
         color: "yellow",
+        category: "family",
     },
     {
         id: 4,
         text: "Собрание в школе",
         comleted: true,
-        color: "blue",
+        color: "yellow",
+        category: "family",
     },
     {
         id: 5,
         text: "Купить купальник",
-        color: "yellow",
+        color: "orange",
         comleted: true,
-        color: "green",
+        category: "shop",
 
     },
+    {
+        id: 6,
+        text: "Мыть балкон",
+        comleted: true,
+        color: "green",
+        category: "home",
+
+    },
+    {
+        id: 7,
+        text: "Записаться к стоматологу",
+        comleted: false,
+        color: "blue",
+        category: "helth",
+
+    },
+    {
+        id: 8,
+        text: "Массаж",
+        comleted: false,
+        color: "red",
+        category: "helth",
+
+    },
+    {
+        id: 9,
+        text: "Новые бокалы",
+        comleted: true,
+        color: "blue",
+        category: "shop",
+
+    },
+    {
+        id: 10,
+        text: "Стирка",
+        color: "orange",
+        comleted: true,
+        category: "home",
+
+    },
+
 ]
 
-renderListTask();
-newTaskForm.addEventListener("submit", (ev) => {
-    ev.preventDefault();
+renderListTask(listTaskData);
 
-    const formData = new FormData(newTaskForm);
+newTaskForm.addEventListener("submit", addNewTask);
 
-    const title = formData.get("title");
-    const category = formData.get("category");
-    const importance = formData.get("importance");
-    const comment = formData.get("comment");
-    const taskColor = formData.get("task-color");
+categoriesElem.addEventListener("change", () => {
+    const category = categoriesElem.value;
+    console.log(category);
 
+    const filteredTasks = filterTasks(listTaskData, category);
 
-    const task = {
-        title,
-        comment,
-        importance,
-        category,
-        taskColor
-    }
-    console.log(task);
-});
+    clearTask();
 
-addBtn.addEventListener("click", addNewTask);
+    renderListTask(filteredTasks);
+})
 
 
-function renderListTask() {
+
+
+function renderListTask(listTaskData) {
     listTaskData.forEach((task) => renderTask(task));
 }
 
@@ -84,9 +120,11 @@ function renderTask(task) {
         <input type="checkbox" ${task.comleted ? "checked" : ""}>
         <img src="${checkArrow}" alt="">
     </div>
-    
+
     <div class="list btn-color ${task.color}">
         <span>${task.text}</span>
+
+        /* <span>${task.category}</span> */
     </div>`;
     taskElem.insertAdjacentHTML("beforeend", taskHTML);
 
@@ -107,11 +145,11 @@ function renderTask(task) {
     listTask.append(taskElem);
 };
 
-function addNewTask() {
-    const text = newTaskInput.value;
+function addNewTask(ev) {
+    // const text = newTaskInput.value; для form не требуется
+    ev.preventDefault();
 
     const formData = new FormData(newTaskForm);
-
     const title = formData.get("title");
     const category = formData.get("category");
     const importance = formData.get("importance");
@@ -119,7 +157,7 @@ function addNewTask() {
     const taskColor = formData.get("task-color");
 
 
-    if (text) {
+    if (title, comment) {
 
         const newTask = {
             id: Date.now(),
@@ -133,10 +171,12 @@ function addNewTask() {
         }
 
         listTaskData.push(newTask);
+        console.log(listTaskData);
 
         renderTask(newTask);
+        newTaskForm.reset();
 
-        newTaskInput.value = "";
+
     }
 }
 
@@ -189,3 +229,19 @@ btnColor.forEach(function (btn) {
         choiceBtn.classList.add('choice');
     });
 });
+
+
+function filterTasks(listTaskData, category) {
+    if (category === "all-list") {
+        return listTaskData;
+    } else {
+        return listTaskData.filter((task) => task.category === category)
+    }
+}
+
+
+function clearTask() {
+    while (listTask.lastChild) {
+        listTask.lastChild.remove();
+    }
+}

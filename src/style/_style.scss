@@ -13,7 +13,7 @@
 }
 
 .attributes {
-    width: calc(100% - 40px - 10px);
+    width: calc(100% - 10px);
     min-width: 300px;
 
     height: 45px;
@@ -64,7 +64,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    width: calc(100% - 40px - 10px);
+    width: calc(100% - 10px);
     min-width: 300px;
     // width: 100%;
     max-width: 767px;
@@ -73,7 +73,7 @@
 
 
 .new-task__task {
-    width: calc(100% - 40px - 20px);
+    width: calc(100% - 20px);
     min-width: calc(300px - 10px);
     padding: 0 0 0 10px;
     outline: none;
@@ -153,6 +153,7 @@
         cursor: pointer;
     }
 
+
     &.yellow {
         background-color: #FFF6BD;
     }
@@ -192,8 +193,9 @@
     padding-left: 25px;
     gap: 10px;
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 410px) {
         max-width: 180px;
+        padding: 0;
     }
 
 }
